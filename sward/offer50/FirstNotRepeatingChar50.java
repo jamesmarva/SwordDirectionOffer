@@ -1,5 +1,7 @@
 package sward.offer50;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -47,5 +49,36 @@ public class FirstNotRepeatingChar50 {
             }
         }
         return -1;
+    }
+
+
+
+
+    private int index;
+    private int[] chars = new int[256];
+
+    public FirstNotRepeatingChar50() {
+        Arrays.fill(chars, -1);
+    }
+    //Insert one char from stringstream
+    public void Insert(char ch) {
+        if (chars[ch] < 0) {
+            chars[ch] = index;
+        } else if (chars[ch] >= 0) {
+            chars[ch] = -2;
+        }
+        index++;
+    }
+    //return the first appearence once char in current stringstream
+    public char FirstAppearingOnce() {
+        int minIndex = Integer.MAX_VALUE;
+        char ans = '#';
+        for (int i = 0; i < 256; ++i) {
+            if (chars[i] >= 0 && minIndex > chars[i]) {
+                ans = (char) i;
+                minIndex = chars[i];
+            }
+        }
+        return ans;
     }
 }
