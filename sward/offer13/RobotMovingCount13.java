@@ -11,7 +11,7 @@ public class RobotMovingCount13 {
 
     private int rowLen = 0;
     private int colLen = 0;
-    boolean[][] visited = null;
+    private boolean[][] visited = null;
     private int ans = 0;
     private int globalHold = 0;
     public int movingCount(int threshold, int rows, int cols) {
@@ -19,8 +19,8 @@ public class RobotMovingCount13 {
         rowLen = rows;
         colLen = cols;
         globalHold = threshold;
-        findRoad(0, 0, 1);
-        return ans;
+        // findRoad(0, 0, 1);
+        return findRoadBetter(0, 0);
     }
 
     private void findRoad(int rowIndex, int colIndex, int tempAns) {
@@ -39,7 +39,6 @@ public class RobotMovingCount13 {
         }
     }
 
-
     private int findRoadBetter(int rowIndex, int colIndex) {
         if (rowIndex >= rowLen || colIndex >= colLen || rowIndex < 0 || colIndex < 0
                 || visited[rowIndex][colIndex] == true) {
@@ -48,7 +47,7 @@ public class RobotMovingCount13 {
         int count = 0;
         if (isValid(rowIndex, colIndex, globalHold)) {
             visited[rowIndex][colIndex] = true;
-            count = findRoadBetter(rowIndex + 1, colIndex)
+            count = 1 + findRoadBetter(rowIndex + 1, colIndex)
                     + findRoadBetter(rowIndex - 1, colIndex)
                     + findRoadBetter(rowIndex, colIndex + 1)
                     + findRoadBetter(rowIndex, colIndex - 1);
