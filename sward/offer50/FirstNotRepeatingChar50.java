@@ -52,7 +52,10 @@ public class FirstNotRepeatingChar50 {
     }
 
 
-
+    /**
+     * 字符流中的第一个字符
+     * 这个里面的重点就是，字符是不断的增加的。
+     */
 
     private int index;
     private int[] chars = new int[256];
