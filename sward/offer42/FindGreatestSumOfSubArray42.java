@@ -15,12 +15,12 @@ public class FindGreatestSumOfSubArray42 {
             return 0;
         }
         int length = array.length;
-        int[] dp = new int[length + 1];
+        int[] dp = new int[length];
         int ans = Integer.MIN_VALUE;
         dp[0] = array[0];
         for (int i = 1; i < length; ++i) {
             dp[i] = Math.max(array[i], dp[i - 1] + array[i]);
-            ans = Math.max(ans, dp[i + 1]);
+            ans = Math.max(ans, dp[i]);
         }
         return ans;
     }

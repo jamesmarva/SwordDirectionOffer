@@ -19,8 +19,9 @@ public class RobotMovingCount13 {
         rowLen = rows;
         colLen = cols;
         globalHold = threshold;
-        // findRoad(0, 0, 1);
+//         findRoad(0, 0, 1);
         return findRoadBetter(0, 0);
+//        return ans;
     }
 
     private void findRoad(int rowIndex, int colIndex, int tempAns) {
@@ -65,5 +66,11 @@ public class RobotMovingCount13 {
             }
         }
         return true;
+    }
+
+
+    public static void main(String[] args) {
+        RobotMovingCount13 robotMovingCount13 = new RobotMovingCount13();
+        System.out.println(robotMovingCount13.movingCount(10, 10, 10));
     }
 }
