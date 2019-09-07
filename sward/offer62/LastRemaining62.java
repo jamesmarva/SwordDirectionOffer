@@ -8,7 +8,7 @@ import java.util.LinkedList;
  * @author: James
  * @create: 2019-08-18 17:13
  **/
-public class LastRemaining {
+public class LastRemaining62 {
 
 
     public int lastRemaining(int n, int m) {
