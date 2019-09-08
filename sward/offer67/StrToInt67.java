@@ -1,6 +1,6 @@
 package sward.offer67;
 
-import javax.print.DocFlavor;
+import java.math.BigInteger;
 
 /**
  * @program: SwordDirectionOffer
@@ -62,15 +62,51 @@ public class StrToInt67 {
     public static void main(String[] args) {
         long test = 2147483648L;
 //        Integer.valueOf()
-        System.out.println(test);
+//        System.out.println(test);
 //        System.out.println(Character.digit('0', 10));
-        System.out.println(parseInt("2147483647", 10));
-        System.out.println(Integer.MAX_VALUE);
-        System.out.println(Integer.MIN_VALUE);
+//        System.out.println(parseInt("2147483647", 10));
+//        System.out.println(Integer.MAX_VALUE);
+//        System.out.println(Integer.MIN_VALUE);
         //  2147483647
         // -2147483648
-        System.out.println(Math.pow(2, 31));
+//        System.out.println(Math.pow(2, 32));
+
+//        System.out.println(decimalToBinary(2147483647));
+//        System.out.println(decimalToBinary(-2147483648));
+//        01111111_11111111_11111111_11111111
+//        11111111_11111111_11111111_11111111
+        System.out.println(binaryToDecimal("1111111111111111111111111111111"));
+        System.out.println(binaryToDecimal("-1111111111111111111111111111111"));
+        System.out.println(binaryToDecimal("-10000000000000000000000000000000"));
+
     }
+
+
+
+
+
+        /**
+
+     * @Description: 十进制转换成二进制
+     * @param decimalSource
+     * @return String
+     */
+    public static String decimalToBinary(int decimalSource) {
+        BigInteger bi = new BigInteger(String.valueOf(decimalSource)); // 转换成 BigInteger 类型，默认是十进制
+        return bi.toString(2); // 参数 2 指定的是转化成二进制
+    }
+
+    /**
+     * @Description: 二进制转换成十进制
+     * @param binarySource
+     * @return int
+     */
+    public static int binaryToDecimal(String binarySource) {
+        BigInteger bi = new BigInteger(binarySource, 2);  // 转换为 BigInteger 类型，参数 2 指定的是二进制
+        return Integer.parseInt(bi.toString());     // 默认转换成十进制
+    }
+
+
     public static int parseInt(String s, int radix)
             throws NumberFormatException {
         if (s == null) {
